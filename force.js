@@ -45,7 +45,7 @@
     }
   };
 
-	var defineModule = function(id, dependencies, callback) {
+  var defineModule = function(id, dependencies, callback) {
     var i, l = dependencies.length;
     if(l == 0) {
       registerModule(id, callback, []);
