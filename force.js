@@ -5,6 +5,7 @@
   var modules = {};
   var injects = {};
   var callbacks = {};
+  var anonymous = 0;
 
   var registerModule = function(id, callback, args) {
     var key, i, l, deps;
@@ -62,7 +63,7 @@
     if(l == 0) {
       callback();
     } else {
-      id = 'require/' + setTimeout("1", 0);
+      id = 'require/' + (anonymous++);
       callbacks[id] = [false, callback].concat(dependencies);
       for(i = 0; i < l; i++) {
         injectModule(dependencies[i]);
