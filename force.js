@@ -76,7 +76,7 @@
     window.require = requireModule;
     config.type = 'text/javascript';
     config.async = 'true';
-    config.src = head.getElementsByTagName('script')[0].getAttribute('data-main') + '.js';
+    config.src = document.getElementsByTagName('script')[0].getAttribute('data-main') + '.js';
     config.onload = function() {
       head.removeChild(config);
     };
