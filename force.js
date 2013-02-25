@@ -48,27 +48,31 @@
 
   var defineModule = function(id, dependencies, callback) {
     var i, l = dependencies.length;
-    if(l == 0) {
-      registerModule(id, callback, []);
-    } else {
-      callbacks[id] = [true, callback].concat(dependencies);
-      for(i = 0; i < l; i++) {
-        injectModule(dependencies[i]);
+    for(i = 0; i < l; i++) {
+      if(!modules[dependencies[i]]) {
+        callbacks[id] = [true, callback].concat(dependencies);
+        for(i = 0; i < l; i++) {
+          injectModule(dependencies[i]);
+        }
+        return;
       }
     }
+    registerModule(id, callback, []);
   };
 
   var requireModule = function(dependencies, callback) {
     var id, i, l = dependencies.length;
-    if(l == 0) {
-      callback();
-    } else {
-      id = 'require/' + (anonymous++);
-      callbacks[id] = [false, callback].concat(dependencies);
-      for(i = 0; i < l; i++) {
-        injectModule(dependencies[i]);
+    for(i = 0; i < l; i++) {
+      if(!modules[dependencies[i]]) {
+        id = 'require/' + (anonymous++);
+        callbacks[id] = [false, callback].concat(dependencies);
+        for(i = 0; i < l; i++) {
+          injectModule(dependencies[i]);
+        }
+        return;
       }
     }
+    callback();
   };
 
   var init = function() {
