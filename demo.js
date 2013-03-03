@@ -1,5 +1,5 @@
 require(['forces/dom', 'forces/math', 'forces/string'], function(dom, math, string) {
-	var node = dom.byId('node');
+  var node = dom.byId('node');
   dom.removeClass(node, 'big');
   dom.addClass(node, 'small');
   dom.addClass(node, 'red');
