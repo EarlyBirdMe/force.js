@@ -13,4 +13,4 @@ force.js
 
 **Try out the demos**
 
-+ http://myst729.github.com/force.js/demo.html
++ http://myst729.github.io/force.js/demo.html
