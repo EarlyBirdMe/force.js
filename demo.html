@@ -19,16 +19,12 @@
         text-align: center;
         text-shadow: 0 1px #eee, 0 0 15px #fff;
         color: #000;
-        transition-property: opacity, -webkit-transform;
-        transition-duration: 500ms, 0s;
-        transition-timing-function: ease-in-out, default;
+        transition: opacity 500ms ease-in-out;
         opacity: 0.1;
         -webkit-transform: rotateZ(0deg);
       }
       .rainbow>.cell:hover {
-        transition-property: opacity, -webkit-transform;
-        transition-duration: 0s, 500ms;
-        transition-timing-function: ease-in-out, default;
+        transition: opacity 0s linear, -webkit-transform 500ms ease-in-out;
         opacity: 1;
         -webkit-transform: rotateZ(360deg);
       }
