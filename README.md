@@ -4,6 +4,7 @@ force.js
 **About this repo**
 
 + A simple AMD loader.
++ This project is released under the [MIT license](http://opensource.org/licenses/MIT).
 
 
 **Read the blog post**
