@@ -22,7 +22,7 @@ void function(window, document, undefined) {
     var node = document.createElement('script');
     node.type = 'text/javascript';
     node.async = 'true';
-    node.src = path;
+    node.src = path + '.js';
     node.onload = function() {
       // Remove from DOM after loaded and executed.
       head.removeChild(node);
@@ -35,7 +35,7 @@ void function(window, document, undefined) {
     // Avoid repeated injection.
     if(!injects[id]) {
       injects[id] = true;
-      appendScript(id + '.js');
+      appendScript(id);
     }
   }
 
@@ -125,7 +125,7 @@ void function(window, document, undefined) {
     window.require = requireModule;
 
     // Load config script.
-    var config = document.getElementsByTagName('script')[0].getAttribute('data-main') + '.js';
+    var config = document.getElementsByTagName('script')[0].getAttribute('data-main');
     appendScript(config);
   }
 
