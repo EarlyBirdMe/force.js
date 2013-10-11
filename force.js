@@ -15,7 +15,7 @@ void function(window, document, undefined) {
   var modules = {};   // map of all registered modules
   var injects = {};   // map of all scripts that have been injected
   var callbacks = {}; // stores the callbacks sequence for future execution
-  var anonymous = 0;
+  var anonymous = 0;  // anonymous modules counter
 
   // Append a script tag into the document head.
   function appendScript(path) {
@@ -23,10 +23,6 @@ void function(window, document, undefined) {
     node.type = 'text/javascript';
     node.async = 'true';
     node.src = path + '.js';
-    node.onload = function() {
-      // Remove from DOM after loaded and executed.
-      head.removeChild(node);
-    };
     head.appendChild(node);
   }
 
@@ -124,9 +120,9 @@ void function(window, document, undefined) {
     window.define = defineModule;
     window.require = requireModule;
 
-    // Load config script.
-    var config = document.getElementsByTagName('script')[0].getAttribute('data-main');
-    appendScript(config);
+    // Load app script.
+    var app = document.getElementsByTagName('script')[0].getAttribute('data-main');
+    appendScript(app);
   }
 
   // Go!
