@@ -116,6 +116,9 @@ void function(window, document, undefined) {
 
   // Initialize.
   function init() {
+    // Compatible with AMD API
+    defineModule.amd = {};
+
     // Expose define and require method to the window object.
     window.define = defineModule;
     window.require = requireModule;
