@@ -1,4 +1,4 @@
-require(['forces/dom', 'forces/xhr', 'front.js/front.min'], function(dom, xhr, front) {
+require(['forces/dom.min', 'forces/xhr.min', 'front.js/front.min'], function(dom, xhr, front) {
 
   var tmpl = '<div class="cell" style="background:{{bg}}">{{letter}}</div>';
   var node = dom.byId('node');
