@@ -73,7 +73,12 @@ void function(window, document, undefined) {
     }
   }
 
-  // Define a module and register it.
+  /**
+   * @description Define a module that can be used later.
+   * @param {String} moduleId Absolute path to the module file (without file name extension).
+   * @param {Array} dependencies IDs of the dependent modules.
+   * @param {Function} factory A factory function that would be executed after all modules are ready, and returns definition of the module. Its parameter list must be coincident with the dependencies.
+   */
   function defineModule(id, dependencies, callback) {
     // Check whether all dependencies are registered.
     for(var i = 0, l = dependencies.length; i < l; i++) {
@@ -93,7 +98,11 @@ void function(window, document, undefined) {
     registerModule(id, dependencies, callback);
   }
 
-  // Require modules and execute the callback.
+  /**
+   * @description Require dependency modules and do something immediately.
+   * @param {Array} dependencies IDs of the dependent modules.
+   * @param {Function} factory A callback function that would be executed after all modules are ready. Its parameter list must be coincident with the dependencies.
+   */
   function requireModule(dependencies, callback) {
     // Check whether all dependencies are registered.
     for(var i = 0, l = dependencies.length; i < l; i++) {
