@@ -14,7 +14,8 @@ http://myst729.github.io/force.js/
  * @description Define a module that can be used later.
  * @param {String} moduleId Absolute path to the module file (without file name extension).
  * @param {Array} dependencies IDs of the dependent modules.
- * @param {Function} factory A factory function that would be executed after all modules are ready, and returns definition of the module.
+ * @param {Function} factory A factory function that would be executed after all modules are ready,
+ *                           and returns definition of the module.
  *                           Its parameter list must be coincident with the dependencies.
  */
 define('modules/module', ['dependencies/dependency'], function(dependency) {
